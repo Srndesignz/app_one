@@ -125,7 +125,10 @@
 				$ext = pathinfo($_FILES['photo']['name'], PATHINFO_EXTENSION);
 				$filename = str_replace(' ', '_', url_title($name)."_".$time.".".$ext);
 				//$this->upload->do_upload('photo');
-				unlink('./uploads/'.$old_photo);
+				if($old_photo != '')
+				{
+					unlink('./uploads/'.$old_photo);
+				}
 				$data = array(
 					'name' => $name,
 					'passout_year' => $passout_year,
